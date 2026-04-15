@@ -1,0 +1,12 @@
+{
+  "keywords": {
+    "idempotency": "intermediate",
+    "blast radius": "intermediate",
+    "invariant": "advanced",
+    "race condition": "intermediate"
+  },
+  "policy": {
+    "downgrade": "never",
+    "seedSource": "onboarding"
+  }
+}
