@@ -1,0 +1,28 @@
+[
+  {
+    "pair": ["Yjs", "Automerge"],
+    "differences": [
+      "Yjs is usually the lower-friction choice when you want a proven CRDT ecosystem and adapter coverage for web collaboration today.",
+      "Automerge can be easier to reason about if local-first semantics and offline-first state ownership are central to the product.",
+      "The deciding factor is usually not raw CRDT theory; it is which integration path better fits your existing app and rollout risk."
+    ],
+    "quiz": [
+      "Which option better matches your current integration path in the existing app?",
+      "If collaboration fails mid-session, which tool leaves you with the safer operational fallback?",
+      "What would make the extra flexibility of the alternative worth the migration cost?"
+    ]
+  },
+  {
+    "pair": ["Postgres", "SQLite"],
+    "differences": [
+      "SQLite is faster to start with when the system is single-user or low-concurrency and deployment simplicity matters most.",
+      "Postgres is usually the safer long-term choice once concurrency, multi-user writes, or operational reporting become central.",
+      "The real question is not which database is more powerful; it is whether the migration cost later is likely higher than the setup cost now."
+    ],
+    "quiz": [
+      "Is the expected write pattern still simple enough that SQLite is a reversible choice?",
+      "What future workload would force you off SQLite first?",
+      "What is the smallest validation step that would prove Postgres is necessary now?"
+    ]
+  }
+]
