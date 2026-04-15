@@ -1,0 +1,361 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildPlanningPacket > builds a calibrated question batch for bug-fix.json 1`] = `
+{
+  "context": "bug_fix",
+  "dimensionQuestions": [
+    {
+      "dimensionId": "problem_framing",
+      "id": "problem_framing",
+      "prompt": "What is the one user-visible outcome that must be true when this work is done, and what is explicitly out of scope so this does not silently become a second project?",
+      "why": "Stops scope drift and makes the change about the real problem instead of the first implementation idea.",
+    },
+    {
+      "dimensionId": "current_state_contracts",
+      "id": "current_state_contracts",
+      "prompt": "What already exists that this will touch, what must remain true after the change, and which interface or behavior would surprise existing users or future maintainers if it changed unexpectedly?",
+      "why": "Prevents isolated thinking in a system that already has callers, invariants, and hidden dependencies.",
+    },
+    {
+      "dimensionId": "verification_learning",
+      "id": "verification_learning",
+      "prompt": "How will you know this worked before and after it ships, and what is the one thing you still need to learn or verify before you should feel confident coding it?",
+      "why": "Combines verification with targeted uncertainty reduction so the user does not confuse coding with progress.",
+    },
+    {
+      "dimensionId": "failure_modes",
+      "id": "failure_modes",
+      "prompt": "If this goes wrong in the most believable way, what breaks for users or data, and how could you make that failure safer by default instead of hoping you catch it later?",
+      "why": "Pushes the plan beyond the happy path and toward resilient behavior.",
+    },
+    {
+      "dimensionId": "change_strategy",
+      "id": "change_strategy",
+      "prompt": "What is the smallest reversible step you could take first, and what is your rollback plan if this change interacts badly with something else?",
+      "why": "Treats rollout and reversibility as part of the design instead of something to think about after the code lands.",
+    },
+  ],
+  "metaQuestions": [
+    {
+      "id": "meta_smallest_version",
+      "prompt": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "why": "Pushes the user out of solution mode and back into the problem they are trying to solve.",
+    },
+    {
+      "id": "meta_assumptions",
+      "prompt": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "why": "Surfaces hidden risk early so the plan can change before the code hardens around it.",
+    },
+    {
+      "id": "meta_throw_away",
+      "prompt": "What would make you throw this solution away in six months and pick a different approach?",
+      "why": "Forces thinking about reversibility and future change instead of only the first implementation.",
+    },
+  ],
+  "recommendedFocus": [
+    "problem_framing",
+    "current_state_contracts",
+    "verification_learning",
+  ],
+}
+`;
+
+exports[`buildPlanningPacket > builds a calibrated question batch for dependency-swap.json 1`] = `
+{
+  "context": "dependency_swap",
+  "dimensionQuestions": [
+    {
+      "dimensionId": "current_state_contracts",
+      "id": "current_state_contracts",
+      "prompt": "What already exists that this will touch, what must remain true after the change, and which interface or behavior would surprise existing users or future maintainers if it changed unexpectedly?",
+      "why": "Prevents isolated thinking in a system that already has callers, invariants, and hidden dependencies.",
+    },
+    {
+      "dimensionId": "change_strategy",
+      "id": "change_strategy",
+      "prompt": "What is the smallest reversible step you could take first, and what is your rollback plan if this change interacts badly with something else?",
+      "why": "Treats rollout and reversibility as part of the design instead of something to think about after the code lands.",
+    },
+    {
+      "dimensionId": "failure_modes",
+      "id": "failure_modes",
+      "prompt": "If this goes wrong in the most believable way, what breaks for users or data, and how could you make that failure safer by default instead of hoping you catch it later?",
+      "why": "Pushes the plan beyond the happy path and toward resilient behavior.",
+    },
+    {
+      "dimensionId": "verification_learning",
+      "id": "verification_learning",
+      "prompt": "How will you know this worked before and after it ships, and what is the one thing you still need to learn or verify before you should feel confident coding it?",
+      "why": "Combines verification with targeted uncertainty reduction so the user does not confuse coding with progress.",
+    },
+    {
+      "dimensionId": "problem_framing",
+      "id": "problem_framing",
+      "prompt": "What is the one user-visible outcome that must be true when this work is done, and what is explicitly out of scope so this does not silently become a second project?",
+      "why": "Stops scope drift and makes the change about the real problem instead of the first implementation idea.",
+    },
+  ],
+  "metaQuestions": [
+    {
+      "id": "meta_smallest_version",
+      "prompt": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "why": "Pushes the user out of solution mode and back into the problem they are trying to solve.",
+    },
+    {
+      "id": "meta_assumptions",
+      "prompt": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "why": "Surfaces hidden risk early so the plan can change before the code hardens around it.",
+    },
+    {
+      "id": "meta_throw_away",
+      "prompt": "What would make you throw this solution away in six months and pick a different approach?",
+      "why": "Forces thinking about reversibility and future change instead of only the first implementation.",
+    },
+  ],
+  "recommendedFocus": [
+    "current_state_contracts",
+    "change_strategy",
+    "failure_modes",
+  ],
+}
+`;
+
+exports[`buildPlanningPacket > builds a calibrated question batch for greenfield.json 1`] = `
+{
+  "context": "greenfield",
+  "dimensionQuestions": [
+    {
+      "dimensionId": "problem_framing",
+      "id": "problem_framing",
+      "prompt": "What is the one user-visible outcome that must be true when this work is done, and what is explicitly out of scope so this does not silently become a second project?",
+      "why": "Stops scope drift and makes the change about the real problem instead of the first implementation idea.",
+    },
+    {
+      "dimensionId": "verification_learning",
+      "id": "verification_learning",
+      "prompt": "How will you know this worked before and after it ships, and what is the one thing you still need to learn or verify before you should feel confident coding it?",
+      "why": "Combines verification with targeted uncertainty reduction so the user does not confuse coding with progress.",
+    },
+    {
+      "dimensionId": "failure_modes",
+      "id": "failure_modes",
+      "prompt": "If this goes wrong in the most believable way, what breaks for users or data, and how could you make that failure safer by default instead of hoping you catch it later?",
+      "why": "Pushes the plan beyond the happy path and toward resilient behavior.",
+    },
+    {
+      "dimensionId": "change_strategy",
+      "id": "change_strategy",
+      "prompt": "What is the smallest reversible step you could take first, and what is your rollback plan if this change interacts badly with something else?",
+      "why": "Treats rollout and reversibility as part of the design instead of something to think about after the code lands.",
+    },
+    {
+      "dimensionId": "current_state_contracts",
+      "id": "current_state_contracts",
+      "prompt": "What already exists that this will touch, what must remain true after the change, and which interface or behavior would surprise existing users or future maintainers if it changed unexpectedly?",
+      "why": "Prevents isolated thinking in a system that already has callers, invariants, and hidden dependencies.",
+    },
+  ],
+  "metaQuestions": [
+    {
+      "id": "meta_smallest_version",
+      "prompt": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "why": "Pushes the user out of solution mode and back into the problem they are trying to solve.",
+    },
+    {
+      "id": "meta_assumptions",
+      "prompt": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "why": "Surfaces hidden risk early so the plan can change before the code hardens around it.",
+    },
+    {
+      "id": "meta_throw_away",
+      "prompt": "What would make you throw this solution away in six months and pick a different approach?",
+      "why": "Forces thinking about reversibility and future change instead of only the first implementation.",
+    },
+  ],
+  "recommendedFocus": [
+    "problem_framing",
+    "verification_learning",
+    "failure_modes",
+  ],
+}
+`;
+
+exports[`buildPlanningPacket > builds a calibrated question batch for migration.json 1`] = `
+{
+  "context": "migration",
+  "dimensionQuestions": [
+    {
+      "dimensionId": "change_strategy",
+      "id": "change_strategy",
+      "prompt": "What is the smallest reversible step you could take first, and what is your rollback plan if this change interacts badly with something else?",
+      "why": "Treats rollout and reversibility as part of the design instead of something to think about after the code lands.",
+    },
+    {
+      "dimensionId": "verification_learning",
+      "id": "verification_learning",
+      "prompt": "How will you know this worked before and after it ships, and what is the one thing you still need to learn or verify before you should feel confident coding it?",
+      "why": "Combines verification with targeted uncertainty reduction so the user does not confuse coding with progress.",
+    },
+    {
+      "dimensionId": "current_state_contracts",
+      "id": "current_state_contracts",
+      "prompt": "What already exists that this will touch, what must remain true after the change, and which interface or behavior would surprise existing users or future maintainers if it changed unexpectedly?",
+      "why": "Prevents isolated thinking in a system that already has callers, invariants, and hidden dependencies.",
+    },
+    {
+      "dimensionId": "failure_modes",
+      "id": "failure_modes",
+      "prompt": "If this goes wrong in the most believable way, what breaks for users or data, and how could you make that failure safer by default instead of hoping you catch it later?",
+      "why": "Pushes the plan beyond the happy path and toward resilient behavior.",
+    },
+    {
+      "dimensionId": "problem_framing",
+      "id": "problem_framing",
+      "prompt": "What is the one user-visible outcome that must be true when this work is done, and what is explicitly out of scope so this does not silently become a second project?",
+      "why": "Stops scope drift and makes the change about the real problem instead of the first implementation idea.",
+    },
+  ],
+  "metaQuestions": [
+    {
+      "id": "meta_smallest_version",
+      "prompt": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "why": "Pushes the user out of solution mode and back into the problem they are trying to solve.",
+    },
+    {
+      "id": "meta_assumptions",
+      "prompt": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "why": "Surfaces hidden risk early so the plan can change before the code hardens around it.",
+    },
+    {
+      "id": "meta_throw_away",
+      "prompt": "What would make you throw this solution away in six months and pick a different approach?",
+      "why": "Forces thinking about reversibility and future change instead of only the first implementation.",
+    },
+  ],
+  "recommendedFocus": [
+    "change_strategy",
+    "verification_learning",
+    "current_state_contracts",
+  ],
+}
+`;
+
+exports[`buildPlanningPacket > builds a calibrated question batch for new-feature.json 1`] = `
+{
+  "context": "new_feature",
+  "dimensionQuestions": [
+    {
+      "dimensionId": "current_state_contracts",
+      "id": "current_state_contracts",
+      "prompt": "What already exists that this will touch, what must remain true after the change, and which interface or behavior would surprise existing users or future maintainers if it changed unexpectedly?",
+      "why": "Prevents isolated thinking in a system that already has callers, invariants, and hidden dependencies.",
+    },
+    {
+      "dimensionId": "failure_modes",
+      "id": "failure_modes",
+      "prompt": "If this goes wrong in the most believable way, what breaks for users or data, and how could you make that failure safer by default instead of hoping you catch it later?",
+      "why": "Pushes the plan beyond the happy path and toward resilient behavior.",
+    },
+    {
+      "dimensionId": "change_strategy",
+      "id": "change_strategy",
+      "prompt": "What is the smallest reversible step you could take first, and what is your rollback plan if this change interacts badly with something else?",
+      "why": "Treats rollout and reversibility as part of the design instead of something to think about after the code lands.",
+    },
+    {
+      "dimensionId": "verification_learning",
+      "id": "verification_learning",
+      "prompt": "How will you know this worked before and after it ships, and what is the one thing you still need to learn or verify before you should feel confident coding it?",
+      "why": "Combines verification with targeted uncertainty reduction so the user does not confuse coding with progress.",
+    },
+    {
+      "dimensionId": "problem_framing",
+      "id": "problem_framing",
+      "prompt": "What is the one user-visible outcome that must be true when this work is done, and what is explicitly out of scope so this does not silently become a second project?",
+      "why": "Stops scope drift and makes the change about the real problem instead of the first implementation idea.",
+    },
+  ],
+  "metaQuestions": [
+    {
+      "id": "meta_smallest_version",
+      "prompt": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "why": "Pushes the user out of solution mode and back into the problem they are trying to solve.",
+    },
+    {
+      "id": "meta_assumptions",
+      "prompt": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "why": "Surfaces hidden risk early so the plan can change before the code hardens around it.",
+    },
+    {
+      "id": "meta_throw_away",
+      "prompt": "What would make you throw this solution away in six months and pick a different approach?",
+      "why": "Forces thinking about reversibility and future change instead of only the first implementation.",
+    },
+  ],
+  "recommendedFocus": [
+    "current_state_contracts",
+    "failure_modes",
+    "change_strategy",
+  ],
+}
+`;
+
+exports[`buildPlanningPacket > builds a calibrated question batch for refactor.json 1`] = `
+{
+  "context": "refactor",
+  "dimensionQuestions": [
+    {
+      "dimensionId": "current_state_contracts",
+      "id": "current_state_contracts",
+      "prompt": "What already exists that this will touch, what must remain true after the change, and which interface or behavior would surprise existing users or future maintainers if it changed unexpectedly?",
+      "why": "Prevents isolated thinking in a system that already has callers, invariants, and hidden dependencies.",
+    },
+    {
+      "dimensionId": "verification_learning",
+      "id": "verification_learning",
+      "prompt": "How will you know this worked before and after it ships, and what is the one thing you still need to learn or verify before you should feel confident coding it?",
+      "why": "Combines verification with targeted uncertainty reduction so the user does not confuse coding with progress.",
+    },
+    {
+      "dimensionId": "failure_modes",
+      "id": "failure_modes",
+      "prompt": "If this goes wrong in the most believable way, what breaks for users or data, and how could you make that failure safer by default instead of hoping you catch it later?",
+      "why": "Pushes the plan beyond the happy path and toward resilient behavior.",
+    },
+    {
+      "dimensionId": "change_strategy",
+      "id": "change_strategy",
+      "prompt": "What is the smallest reversible step you could take first, and what is your rollback plan if this change interacts badly with something else?",
+      "why": "Treats rollout and reversibility as part of the design instead of something to think about after the code lands.",
+    },
+    {
+      "dimensionId": "problem_framing",
+      "id": "problem_framing",
+      "prompt": "What is the one user-visible outcome that must be true when this work is done, and what is explicitly out of scope so this does not silently become a second project?",
+      "why": "Stops scope drift and makes the change about the real problem instead of the first implementation idea.",
+    },
+  ],
+  "metaQuestions": [
+    {
+      "id": "meta_smallest_version",
+      "prompt": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "why": "Pushes the user out of solution mode and back into the problem they are trying to solve.",
+    },
+    {
+      "id": "meta_assumptions",
+      "prompt": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "why": "Surfaces hidden risk early so the plan can change before the code hardens around it.",
+    },
+    {
+      "id": "meta_throw_away",
+      "prompt": "What would make you throw this solution away in six months and pick a different approach?",
+      "why": "Forces thinking about reversibility and future change instead of only the first implementation.",
+    },
+  ],
+  "recommendedFocus": [
+    "current_state_contracts",
+    "verification_learning",
+    "failure_modes",
+  ],
+}
+`;
