@@ -1,0 +1,40 @@
+{
+  "name": "unvibe",
+  "version": "0.1.0-alpha.0",
+  "description": "Learning-first planning orchestration for Codex CLI.",
+  "type": "module",
+  "bin": {
+    "unvibe": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "content",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node ./scripts/copy-content.mjs",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "codex",
+    "cli",
+    "education",
+    "planning",
+    "typescript"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
