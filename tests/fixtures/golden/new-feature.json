@@ -1,0 +1,5 @@
+{
+  "name": "new-feature",
+  "brainDump": "Add real-time collaborative cursors to my existing Next.js app so users can see each other editing the same board.",
+  "expectedContext": "new_feature"
+}

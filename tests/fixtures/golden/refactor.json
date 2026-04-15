@@ -1,0 +1,5 @@
+{
+  "name": "refactor",
+  "brainDump": "Refactor the notifications module so the internal structure is easier to change without changing the visible behavior.",
+  "expectedContext": "refactor"
+}

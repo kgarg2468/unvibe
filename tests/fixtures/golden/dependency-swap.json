@@ -1,0 +1,5 @@
+{
+  "name": "dependency-swap",
+  "brainDump": "Replace Supabase Auth with Clerk across the app without breaking existing login flows.",
+  "expectedContext": "dependency_swap"
+}
