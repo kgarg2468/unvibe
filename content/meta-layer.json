@@ -1,0 +1,29 @@
+[
+  {
+    "id": "meta_smallest_version",
+    "prompts": {
+      "beginner": "What are you actually trying to accomplish here, and what is the smallest version that would still feel useful to a real user?",
+      "intermediate": "What is the real outcome you want, and what is the smallest version worth shipping first?",
+      "advanced": "What is the real outcome, and is this the smallest meaningful slice?"
+    },
+    "why": "Pushes the user out of solution mode and back into the problem they are trying to solve."
+  },
+  {
+    "id": "meta_assumptions",
+    "prompts": {
+      "beginner": "What are you assuming might be true about the app, the users, or the data that could turn out to be wrong once you start building?",
+      "intermediate": "Which assumptions in this plan are most likely to be wrong once implementation starts?",
+      "advanced": "What assumptions here are most likely to break?"
+    },
+    "why": "Surfaces hidden risk early so the plan can change before the code hardens around it."
+  },
+  {
+    "id": "meta_throw_away",
+    "prompts": {
+      "beginner": "What would make you throw this solution away in six months and pick a different approach?",
+      "intermediate": "What would make this approach feel wrong in six months?",
+      "advanced": "What would make you replace this in six months?"
+    },
+    "why": "Forces thinking about reversibility and future change instead of only the first implementation."
+  }
+]
