@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.unvibe/
+.DS_Store
+.unvibe-home/
+AI Learning Framework/
+prd.md
