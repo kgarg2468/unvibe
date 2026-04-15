@@ -2,6 +2,11 @@
 
 Unvibe is a learning-first orchestration layer for AI-assisted coding. It pushes Codex CLI into a planning workflow before code generation so users learn the reasoning behind stack, architecture, failure-mode, and rollout choices instead of only receiving code.
 
+## Repository layout
+
+- `AI Learning Framework/` contains the planning and research docs.
+- `unvibe-package/` contains the runnable package source, tests, build output, and package metadata.
+
 ## v0 scope
 
 - Codex CLI adapter via `AGENTS.md`
@@ -31,6 +36,7 @@ unvibe log edit --entry decision-... --reason "Changed requirements" --answer "U
 ## Local development
 
 ```bash
+cd unvibe-package
 npm install
 npm test
 npm run build
