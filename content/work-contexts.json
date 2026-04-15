@@ -1,0 +1,62 @@
+{
+  "greenfield": {
+    "defaultQuestionCount": 5,
+    "dimensions": {
+      "problem_framing": 5,
+      "current_state_contracts": 2,
+      "failure_modes": 3,
+      "change_strategy": 3,
+      "verification_learning": 4
+    }
+  },
+  "new_feature": {
+    "defaultQuestionCount": 5,
+    "dimensions": {
+      "problem_framing": 3,
+      "current_state_contracts": 5,
+      "failure_modes": 5,
+      "change_strategy": 4,
+      "verification_learning": 4
+    }
+  },
+  "dependency_swap": {
+    "defaultQuestionCount": 5,
+    "dimensions": {
+      "problem_framing": 2,
+      "current_state_contracts": 5,
+      "failure_modes": 4,
+      "change_strategy": 5,
+      "verification_learning": 4
+    }
+  },
+  "refactor": {
+    "defaultQuestionCount": 5,
+    "dimensions": {
+      "problem_framing": 2,
+      "current_state_contracts": 5,
+      "failure_modes": 4,
+      "change_strategy": 4,
+      "verification_learning": 5
+    }
+  },
+  "migration": {
+    "defaultQuestionCount": 5,
+    "dimensions": {
+      "problem_framing": 3,
+      "current_state_contracts": 4,
+      "failure_modes": 4,
+      "change_strategy": 5,
+      "verification_learning": 5
+    }
+  },
+  "bug_fix": {
+    "defaultQuestionCount": 5,
+    "dimensions": {
+      "problem_framing": 5,
+      "current_state_contracts": 5,
+      "failure_modes": 4,
+      "change_strategy": 2,
+      "verification_learning": 5
+    }
+  }
+}
