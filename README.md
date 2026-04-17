@@ -76,6 +76,40 @@ The `research` step is conditional. It fires only when `questioning` detects rea
 
 `decision-capture` is the handoff point. It writes the append-only learning artifact, updates the calibration profile, and then passes the work into planning. If Superpowers `writing-plans` is unavailable, the agent generates the plan natively.
 
+## Question UX in Codex
+
+Unvibe is now Codex-first for question presentation:
+
+- ask exactly one user-facing question per turn
+- keep the three meta-layer questions open-ended
+- render later product and architecture decisions as structured choices when the host supports them
+- keep a deterministic plain-text fallback for hosts that do not
+
+In Codex:
+
+- the app should use the structured picker UI for discrete decisions
+- the CLI should use the corresponding numbered selector flow
+- approval in `decision-capture` should use the same choice-driven pattern
+
+Outside Codex or outside structured-input contexts, the fallback format is:
+
+```text
+[Question]
+
+Recommendation: [option], because [reason].
+
+1. [Option]
+[description]
+
+2. [Option]
+[description]
+
+3. [Option]
+[description]
+
+Reply with 1, 2, 3, or your own answer.
+```
+
 ## Notes
 
 - The legacy `unvibe-package/` prototype has been removed. The active product path is the skill bundle in this repo root.

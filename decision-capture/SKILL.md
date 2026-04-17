@@ -76,7 +76,7 @@ digraph decision_capture {
 1. Compile the answers from `questioning` and `research`
 2. Read only the latest decision-log entry for format consistency
 3. Draft the new decision summary using the fixed schema
-4. Present the summary to the user for approval
+4. Present the summary using the approval-choice contract
 5. Append the approved entry to `.unvibe/decisions.md`
 6. Update `~/.unvibe/profile.json` with the calibration signals gathered during questioning
 7. Hand off to Superpowers `writing-plans`, or generate the plan natively if that skill is unavailable
@@ -149,6 +149,33 @@ Do not make the profile flattering. Make it honest.
 
 Present the draft summary cleanly and ask for approval before writing.
 
+Use `approval_choice` with exactly one user-facing question per turn.
+
+When structured input is available, especially in Codex:
+
+- `Approve draft`
+- `Revise wording`
+- `Revise decisions`
+
+Put `Approve draft` first when the draft already matches the session.
+
+When structured input is unavailable, use this fallback:
+
+```text
+Does this draft look right?
+
+1. Approve draft
+Append it and continue to planning.
+
+2. Revise wording
+Keep the decisions, but tighten or rewrite the summary.
+
+3. Revise decisions
+One or more decisions are wrong or incomplete.
+
+Reply with 1, 2, 3, or your own answer.
+```
+
 If the user wants changes:
 
 - revise the draft
@@ -173,6 +200,7 @@ Never do any of these:
 - append before approval in this v1 bundle
 - rewrite the user's reasoning into generic agent voice
 - skip the learning artifact because the plan feels obvious
+- bury the approval step inside a prose paragraph with no clear action choices
 
 ## Terminal State
 
