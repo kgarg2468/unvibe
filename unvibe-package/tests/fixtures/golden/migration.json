@@ -1,5 +1,0 @@
-{
-  "name": "migration",
-  "brainDump": "Migrate existing customer records from the legacy table into a new normalized schema over time.",
-  "expectedContext": "migration"
-}

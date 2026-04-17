@@ -1,6 +1,5 @@
 dist/
 node_modules/
-.worktrees/
 .unvibe/
 .DS_Store
 .unvibe-home/

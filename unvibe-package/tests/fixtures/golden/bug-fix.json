@@ -1,5 +1,0 @@
-{
-  "name": "bug-fix",
-  "brainDump": "Fix the bug where duplicate checkout submissions can create two orders when a user clicks the pay button twice.",
-  "expectedContext": "bug_fix"
-}
