@@ -27,7 +27,7 @@ This is the center of the framework. It turns a raw request into a small set of 
 2. confirming the work context
 3. loading the user's recent decisions and calibration profile
 4. selecting the right dimension references for this kind of work
-5. asking 3-7 calibrated questions in the Unvibe decision format
+5. asking 3-7 calibrated questions using the Unvibe interaction modes
 6. detecting uncertainty and routing to `research`
 7. handing the finished decision set to `decision-capture`
 
@@ -109,10 +109,26 @@ digraph questioning {
 5. Read only the allowed recent slice of `.unvibe/decisions.md`
 6. Identify any locked recent decisions that should not be re-asked
 7. Load only the relevant dimension reference files for the confirmed context
-8. Generate 3-7 calibrated questions in the Unvibe decision format
-9. After each answer, track calibration signals and watch for uncertainty markers
+8. Generate 3-7 calibrated questions in the Unvibe interaction format
+9. Ask exactly one user-facing question per turn, then wait for the answer
 10. If uncertainty is present, invoke `research`, then resume questioning
 11. When the decision set is complete, invoke `decision-capture`
+
+## Interaction Modes
+
+The questioning flow uses three interaction modes across the full Unvibe chain:
+
+- `open_text`
+  - Used only for the three meta-layer questions
+  - The user answers in their own words
+- `structured_choice`
+  - Used for later product, architecture, and rollout decisions
+  - Render as a structured picker in Codex when available
+- `approval_choice`
+  - Reserved for `decision-capture` approval and revision choices
+  - Mentioned here so the questioning handoff uses the same UX contract
+
+Exactly one user-facing question is sent per turn in every mode.
 
 ## Meta-Layer: Fixed Order, No Exceptions
 
@@ -124,9 +140,11 @@ Open with a short framing line in the golden-set voice, then ask these three que
 
 Each meta-layer question uses the same pattern:
 
+- a short framing line when useful
 - the question in plain language
 - 2-3 example answers as inspiration
 - a direct invitation to answer in the user's own words
+- a short reply cue like `Reply in 1-3 sentences.`
 
 Examples are scaffolding, not options. They are there to teach the shape of a good answer without turning the question into a test.
 
@@ -145,6 +163,8 @@ Use these shapes, adapted to the project:
   - Follow with 2-3 concrete future-regret examples
 
 The meta-layer is open-ended. Do not force it into multiple choice.
+
+Ask the three meta-layer questions one at a time. Never dump all three in a single wall of text.
 
 ## Work-Context Detection
 
@@ -176,8 +196,8 @@ Do not ask one question per dimension by rote. Load the right references, then c
 Use `~/.unvibe/profile.json` to set vocabulary, scope, and depth.
 
 - `beginner`: one question at a time, more explanation in blurbs, lighter jargon, more explicit recommendations
-- `intermediate`: still explanatory, but assumes the user can compare tradeoffs with help
-- `senior`: pressure-test the reasoning, not the vocabulary
+- `intermediate`: still one question at a time, but assumes the user can compare tradeoffs with help
+- `senior`: still one question at a time, but pressure-test the reasoning instead of the vocabulary
 
 If the profile contains `advanced`, treat it as `senior`.
 
@@ -207,33 +227,51 @@ If the user explicitly says they want to revisit a prior decision, unlock it for
 
 ## Decision Question Format
 
-Every decision question must use this structure:
+Every decision question uses `structured_choice` when the host supports it, and a deterministic plain-text fallback everywhere else.
+
+### Structured Choice Contract
+
+When Codex structured input is available, especially in Plan mode:
+
+- ask one question only
+- provide 2-3 mutually exclusive options
+- put the recommended option first and label it `(Recommended)`
+- keep each option description short and plain-language
+- rely on the host's built-in free-form fallback when the user wants a different answer
+
+If the choice alone is not enough to continue, ask a short rationale follow-up as the next turn. Do not bundle the follow-up into the same message.
+
+### Plain-Text Fallback Contract
+
+When structured input is unavailable, use this format:
 
 ```text
 [Question in plain language]
 
-Option A — [name]
-[1-2 sentence blurb in plain language]
-
-Option B — [name]
-[1-2 sentence blurb in plain language]
-
-Option C — [name]
-[1-2 sentence blurb in plain language]
-
 Recommendation: [specific option], because [project-specific reasoning that references what the user already said].
 
-Which one do you want to go with? You can also say "tell me more about X" or "propose a fourth option."
+1. [Option name]
+[1-2 sentence blurb in plain language]
+
+2. [Option name]
+[1-2 sentence blurb in plain language]
+
+3. [Option name]
+[1-2 sentence blurb in plain language]
+
+Reply with 1, 2, 3, or your own answer.
 ```
 
 Required rules:
 
-- 3+ options, always
+- exactly one decision question per turn
+- 2-3 options only
 - every option gets a plain-language blurb
 - technical terms are explained inline if needed
 - every recommendation is project-specific
 - the user must actively pick; there is no auto-accept
-- every decision question includes both escape hatches
+- the plain-text fallback always ends with `Reply with 1, 2, 3, or your own answer.`
+- structured choice is a Codex enhancement, not the only supported path
 
 ## What Good Calibration Sounds Like
 
@@ -270,6 +308,7 @@ Never do any of these:
 - ask a generic question when you could ask a decision question with concrete options
 - keep asking new questions when the real issue is uncertainty that should go through `research`
 - skip the meta-layer because the task feels familiar
+- send multiple unrelated user-facing questions in one turn
 
 ## Red Flags
 
